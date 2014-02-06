@@ -1,10 +1,14 @@
 #include<iostream>
 #include<stdio.h>
+#include<ctime>
 
 using namespace std;
 
 void main()
 {
+	clock_t begin = clock();
+	
+	
 	char addNum[500];
 	char number[500];
 	memset(number,0,sizeof(char)*500);
@@ -31,7 +35,9 @@ void main()
 			numLength++;
 		}
 	}
-
+	clock_t end = clock();
+	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+	cout<<elapsed_secs << endl;
 	int sum = 0;
 	for(int i = numLength ; i >=0; i--)
 	{
