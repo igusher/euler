@@ -22,7 +22,13 @@ MyBigInt::~MyBigInt(void)
 	delete [] val;
 }
 
-
+void MyBigInt::set(MyBigInt * bigInt)
+{
+	delete this->val;
+	this->val = new unsigned int[bigInt->size];
+	memcpy(this->val, bigInt->val, sizeof(unsigned int) * bigInt->size);
+	this->size = bigInt->size;
+}
 
 void MyBigInt::add(unsigned int a)
 {
@@ -146,3 +152,26 @@ void MyBigInt::resize(int newSize)
 
 	
 }
+
+bool MyBigInt::toString(char*buffer, int len)
+{
+	int id = 0;
+	MyBigInt * temp = new MyBigInt();
+	temp->set(this);
+	unsigned int rem;
+	while((temp->val[0] != 0) || (temp->size > 1))
+	{
+		temp->div(10, rem);
+		buffer[id++] = '0' + rem;
+		if(id == len)
+		{
+			delete temp;
+			return false;
+		}
+	}
+	if(id<len)
+		buffer[id] = 0;
+	delete temp;
+	return false;
+}
+
