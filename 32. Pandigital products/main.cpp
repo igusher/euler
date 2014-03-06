@@ -14,7 +14,7 @@ int main() {
 		int digitsA = log10 (a) +1;
 		int limitB = (9 - digitsA) / 2;
 		limitB = pow(10, limitB) ;
-		
+			
 		for(int b = a+1; b <= limitB; b++)
 		{
 			int digitsB = log10 (b) +1;
