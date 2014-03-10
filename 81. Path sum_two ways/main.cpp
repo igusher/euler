@@ -83,3 +83,8 @@ unsigned long long threeWays(unsigned long long matrix[size][size])
 
 	return min;
 }
+
+unsigned long long fourWays(unsigned long long matrix[size][size])
+{
+
+}
