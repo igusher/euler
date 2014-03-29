@@ -62,6 +62,24 @@ void primes::eratosthenes(int * primes, int size)
 }
 
 
+bool pandigital::isPandigital(int num, int digits)
+{
+	//number doesn't contain all digits
+	if(log10((double)num)+1 < digits)
+		return false;
+	int res = 0;
+	while(num >0)
+	{
+		res += 1 << ((num %10) -1);
+		num /=10;
+	}
+	if( res == ((1 << digits) - 1))
+		return true;
+
+	return false;
+
+}
+
 bool primes::completePrimeTest(int prime, int* divisors, int len)
 {
 	for(int i = 0 ; i < len ; i++)

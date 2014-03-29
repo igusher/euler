@@ -17,3 +17,7 @@ namespace search{
 namespace integers{
 	void rotateLeft(int &num, int digits);
 }
+
+namespace pandigital{
+	bool isPandigital(int num, int digits);
+}
