@@ -1,5 +1,6 @@
 #include "utils.h"
 #include<memory>
+
 using namespace primes;
 
 bool primes::isPrime(int num)
@@ -121,4 +122,14 @@ void integers::rotateLeft(int& num, int digits)
 	num*=10;
 	num += num / pow(10.,digits);
 	num %= (int)pow(10.,digits);
+}
+
+void timer::start()
+{
+	startTime = std::clock();
+}
+
+long timer::finish()
+{
+	return (long)( std::clock() - startTime );
 }

@@ -1,3 +1,5 @@
+#include<iostream>
+#include<ctime>
 namespace primes{
 	void eratBool(bool * primes, int limit);
 	int eratLimit(int * primes, int limit, int size);
@@ -20,4 +22,11 @@ namespace integers{
 
 namespace pandigital{
 	bool isPandigital(int num, int digits);
+}
+
+std::clock_t startTime;
+namespace timer{
+	
+	void start();
+	long finish();
 }
