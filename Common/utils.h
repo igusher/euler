@@ -2,6 +2,7 @@
 #include<ctime>
 namespace primes{
 	void eratBool(bool * primes, int limit);
+	void eratBool2(bool * primes, int limit);
 	int eratLimit(int * primes, int limit, int size);
 	void eratosthenes(int * primes, int size);
 

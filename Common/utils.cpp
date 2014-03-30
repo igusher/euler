@@ -19,8 +19,9 @@ bool primes::isPrime(int num)
 
 void primes::eratBool(bool * primesBool, int limit)
 {
-	int *primes = new int[limit/4];
-	int size = eratLimit(primes,limit, limit/4);
+
+	int *primes = new int[limit/2];
+	int size = eratLimit(primes,limit, limit/2);
 	if(size == 0)
 		throw "not enough array size";
 	memset(primesBool,0,sizeof(bool)*limit);
@@ -29,6 +30,25 @@ void primes::eratBool(bool * primesBool, int limit)
 		primesBool[primes[i]] = true;
 	}
 	delete [] primes;
+}
+
+void primes::eratBool2(bool * primesBool, int limit)
+{
+	memset(primesBool,1,sizeof(bool)*limit);
+	primesBool[0] = false;
+	primesBool[1] = false;
+	primesBool[2] = true;
+	for(int i = 2 ; i < limit ; i++)
+	{
+		if(primesBool[i])
+		{
+			for(int j = 2; i*j < limit; j++)
+			{
+				primesBool[i*j] = false;
+			}
+		}
+	}
+	
 }
 
 int primes::eratLimit(int * primes, int limit, int size)
